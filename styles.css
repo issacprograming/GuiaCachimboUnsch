@@ -2067,51 +2067,6 @@ img { max-width: 100%; display: block; }
 }
 
 /* ══════════════════════════════════════
-   BOTÓN VOLVER — SUPERIOR IZQUIERDA
-══════════════════════════════════════ */
-/*.btn-volver {
-  position: fixed !important;
-  top: 80px !important;
-  left: 20px !important;
-  bottom: auto !important;
-  transform: none !important;
-  writing-mode: horizontal-tb !important;
-  flex-direction: row !important;
-  padding: 12px 20px !important;
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  background: var(--rojo) !important;
-  color: var(--blanco) !important;
-  border: none !important;
-  border-radius: 10px !important;
-  box-shadow: 0 4px 16px rgba(139,26,26,0.3) !important;
-  gap: 8px !important;
-  z-index: 900 !important;
-}
-
-.btn-volver::before {
-  content: '←' !important;
-  font-size: 1rem !important;
-  writing-mode: horizontal-tb !important;
-  color: var(--blanco) !important;
-}
-
-.btn-volver:hover {
-  background: var(--rojo-oscuro) !important;
-  transform: translateX(-3px) !important;
-  box-shadow: 0 6px 20px rgba(139,26,26,0.4) !important;
-}
-
-@media (max-width: 600px) {
-  .btn-volver {
-    top: 76px !important;
-    left: 12px !important;
-    font-size: 0.8rem !important;
-    padding: 10px 14px !important;
-  }
-}*/
-
-/* ══════════════════════════════════════
    BOTÓN VOLVER — EN EL BODY
 ══════════════════════════════════════ */
 .btn-volver-body {
@@ -2596,4 +2551,25 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 420px) {
   .silabos-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════
+   NAVBAR — AJUSTE PARA 6 ENLACES
+══════════════════════════════════════ */
+.nav-link {
+  padding: 8px 10px !important;
+  font-size: 0.82rem !important;
+}
+
+.nav-logo span {
+  font-size: 0.95rem;
+}
+
+/* ── Botones tipo button para documentos ── */
+button.doc-btn {
+  cursor: pointer;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
 }

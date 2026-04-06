@@ -4,12 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documentos — Guía Cachimbo UNSCH</title>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -37,7 +31,7 @@
     </div>
   </nav>
 
-  <!-- HERO MEDIANO -->
+  <!-- HERO -->
   <section class="pagina-hero pagina-hero--md">
     <div class="pagina-hero-content">
       <span class="seccion-tag" id="hero-facultad">Facultad</span>
@@ -49,11 +43,9 @@
   <section class="seccion">
     <div class="container">
 
-      <!-- Botón volver -->
       <a id="btn-volver-esc" href="facultades.html" class="btn-volver-body">← Volver a Escuelas</a>
 
-      <!-- 3 tarjetas -->
-      <div class="docs-grid" id="docs-grid">
+      <div class="docs-grid">
 
         <!-- Currículo -->
         <div class="doc-card-full">
@@ -65,8 +57,8 @@
             <p class="doc-formato">📄 Formato PDF</p>
             <p class="doc-desc">Documento oficial que describe el perfil profesional, competencias y estructura académica de la carrera.</p>
             <div class="doc-btns">
-              <a id="btn-des-curriculo" href="#" download class="doc-btn doc-btn--rojo">⬇ Descargar</a>
-              <a id="btn-abr-curriculo" href="#" target="_blank" class="doc-btn doc-btn--dorado">↗ Abrir</a>
+              <button id="btn-des-curriculo" class="doc-btn doc-btn--rojo">⬇ Descargar</button>
+              <button id="btn-abr-curriculo" class="doc-btn doc-btn--dorado">↗ Abrir</button>
             </div>
           </div>
         </div>
@@ -81,8 +73,8 @@
             <p class="doc-formato">📄 Formato PDF</p>
             <p class="doc-desc">Lista completa de cursos por ciclo, con créditos, horas de teoría, práctica y laboratorio.</p>
             <div class="doc-btns">
-              <a id="btn-des-plan" href="#" download class="doc-btn doc-btn--rojo">⬇ Descargar</a>
-              <a id="btn-abr-plan" href="#" target="_blank" class="doc-btn doc-btn--dorado">↗ Abrir</a>
+              <button id="btn-des-plan" class="doc-btn doc-btn--rojo">⬇ Descargar</button>
+              <button id="btn-abr-plan" class="doc-btn doc-btn--dorado">↗ Abrir</button>
             </div>
           </div>
         </div>
@@ -97,8 +89,8 @@
             <p class="doc-formato">📄 Formato PDF</p>
             <p class="doc-desc">Representación visual de todos los cursos y sus conexiones, organizada por ciclos y series.</p>
             <div class="doc-btns">
-              <a id="btn-des-malla" href="#" download class="doc-btn doc-btn--rojo">⬇ Descargar</a>
-              <a id="btn-abr-malla" href="#" target="_blank" class="doc-btn doc-btn--dorado">↗ Abrir</a>
+              <button id="btn-des-malla" class="doc-btn doc-btn--rojo">⬇ Descargar</button>
+              <button id="btn-abr-malla" class="doc-btn doc-btn--dorado">↗ Abrir</button>
             </div>
           </div>
         </div>
@@ -136,56 +128,45 @@
 
   <script src="script.js"></script>
   <script>
-  // ── DATOS: rutas de PDFs por escuela ──
   const pdfs = {
-    // IQM
-    quimica:        { curriculo: 'pdfs/iqm/quimica-curriculo.pdf',        plan: 'pdfs/iqm/quimica-plan.pdf',        malla: 'pdfs/iqm/quimica-malla.pdf' },
-    alimentarias:   { curriculo: 'pdfs/iqm/alimentarias-curriculo.pdf',   plan: 'pdfs/iqm/alimentarias-plan.pdf',   malla: 'pdfs/iqm/alimentarias-malla.pdf' },
-    agroindustrial: { curriculo: 'pdfs/iqm/agroindustrial-curriculo.pdf', plan: 'pdfs/iqm/agroindustrial-plan.pdf', malla: 'pdfs/iqm/agroindustrial-malla.pdf' },
-    // Sociales
-    ts:           { curriculo: 'pdfs/sociales/ts-curriculo.pdf',           plan: 'pdfs/sociales/ts-plan.pdf',           malla: 'pdfs/sociales/ts-malla.pdf' },
-    antropologia: { curriculo: 'pdfs/sociales/antropologia-curriculo.pdf', plan: 'pdfs/sociales/antropologia-plan.pdf', malla: 'pdfs/sociales/antropologia-malla.pdf' },
-    comunicacion: { curriculo: 'pdfs/sociales/comunicacion-curriculo.pdf', plan: 'pdfs/sociales/comunicacion-plan.pdf', malla: 'pdfs/sociales/comunicacion-malla.pdf' },
-    arqueologia:  { curriculo: 'pdfs/sociales/arqueologia-curriculo.pdf',  plan: 'pdfs/sociales/arqueologia-plan.pdf',  malla: 'pdfs/sociales/arqueologia-malla.pdf' },
-    historia:     { curriculo: 'pdfs/sociales/historia-curriculo.pdf',     plan: 'pdfs/sociales/historia-plan.pdf',     malla: 'pdfs/sociales/historia-malla.pdf' },
-    // IMGC
-    minas:    { curriculo: 'pdfs/imgc/minas-curriculo.pdf',    plan: 'pdfs/imgc/minas-plan.pdf',    malla: 'pdfs/imgc/minas-malla.pdf' },
-    civil:    { curriculo: 'pdfs/imgc/civil-curriculo.pdf',    plan: 'pdfs/imgc/civil-plan.pdf',    malla: 'pdfs/imgc/civil-malla.pdf' },
-    sistemas: { curriculo: 'pdfs/imgc/sistemas-curriculo.pdf', plan: 'pdfs/imgc/sistemas-plan.pdf', malla: 'pdfs/imgc/sistemas-malla.pdf' },
-    fisica:   { curriculo: 'pdfs/imgc/fisica-curriculo.pdf',   plan: 'pdfs/imgc/fisica-plan.pdf',   malla: 'pdfs/imgc/fisica-malla.pdf' },
-    mate:     { curriculo: 'pdfs/imgc/mate-curriculo.pdf',     plan: 'pdfs/imgc/mate-plan.pdf',     malla: 'pdfs/imgc/mate-malla.pdf' },
-    estad:    { curriculo: 'pdfs/imgc/estad-curriculo.pdf',    plan: 'pdfs/imgc/estad-plan.pdf',    malla: 'pdfs/imgc/estad-malla.pdf' },
-    // CB
-    micro:    { curriculo: 'pdfs/cb/micro-curriculo.pdf',    plan: 'pdfs/cb/micro-plan.pdf',    malla: 'pdfs/cb/micro-malla.pdf' },
-    bio:      { curriculo: 'pdfs/cb/bio-curriculo.pdf',      plan: 'pdfs/cb/bio-plan.pdf',      malla: 'pdfs/cb/bio-malla.pdf' },
-    ecologia: { curriculo: 'pdfs/cb/ecologia-curriculo.pdf', plan: 'pdfs/cb/ecologia-plan.pdf', malla: 'pdfs/cb/ecologia-malla.pdf' },
-    // CE
-    inicial:   { curriculo: 'pdfs/ce/inicial-curriculo.pdf',   plan: 'pdfs/ce/inicial-plan.pdf',   malla: 'pdfs/ce/inicial-malla.pdf' },
-    primaria:  { curriculo: 'pdfs/ce/primaria-curriculo.pdf',  plan: 'pdfs/ce/primaria-plan.pdf',  malla: 'pdfs/ce/primaria-malla.pdf' },
-    lengua:    { curriculo: 'pdfs/ce/lengua-curriculo.pdf',    plan: 'pdfs/ce/lengua-plan.pdf',    malla: 'pdfs/ce/lengua-malla.pdf' },
-    matfis:    { curriculo: 'pdfs/ce/matfis-curriculo.pdf',    plan: 'pdfs/ce/matfis-plan.pdf',    malla: 'pdfs/ce/matfis-malla.pdf' },
-    ingles:    { curriculo: 'pdfs/ce/ingles-curriculo.pdf',    plan: 'pdfs/ce/ingles-plan.pdf',    malla: 'pdfs/ce/ingles-malla.pdf' },
-    socfil:    { curriculo: 'pdfs/ce/socfil-curriculo.pdf',    plan: 'pdfs/ce/socfil-plan.pdf',    malla: 'pdfs/ce/socfil-malla.pdf' },
-    edufisica: { curriculo: 'pdfs/ce/edufisica-curriculo.pdf', plan: 'pdfs/ce/edufisica-plan.pdf', malla: 'pdfs/ce/edufisica-malla.pdf' },
-    // CA
-    agronomia:    { curriculo: 'pdfs/ca/agronomia-curriculo.pdf',    plan: 'pdfs/ca/agronomia-plan.pdf',    malla: 'pdfs/ca/agronomia-malla.pdf' },
-    agricola:     { curriculo: 'pdfs/ca/agricola-curriculo.pdf',     plan: 'pdfs/ca/agricola-plan.pdf',     malla: 'pdfs/ca/agricola-malla.pdf' },
-    mv:           { curriculo: 'pdfs/ca/mv-curriculo.pdf',           plan: 'pdfs/ca/mv-plan.pdf',           malla: 'pdfs/ca/mv-malla.pdf' },
-    agroforestal: { curriculo: 'pdfs/ca/agroforestal-curriculo.pdf', plan: 'pdfs/ca/agroforestal-plan.pdf', malla: 'pdfs/ca/agroforestal-malla.pdf' },
-    // DCP
-    derecho: { curriculo: 'pdfs/dcp/derecho-curriculo.pdf', plan: 'pdfs/dcp/derecho-plan.pdf', malla: 'pdfs/dcp/derecho-malla.pdf' },
-    // CS
-    obstetricia: { curriculo: 'pdfs/cs/obstetricia-curriculo.pdf', plan: 'pdfs/cs/obstetricia-plan.pdf', malla: 'pdfs/cs/obstetricia-malla.pdf' },
-    enfermeria:  { curriculo: 'pdfs/cs/enfermeria-curriculo.pdf',  plan: 'pdfs/cs/enfermeria-plan.pdf',  malla: 'pdfs/cs/enfermeria-malla.pdf' },
-    farmacia:    { curriculo: 'pdfs/cs/farmacia-curriculo.pdf',    plan: 'pdfs/cs/farmacia-plan.pdf',    malla: 'pdfs/cs/farmacia-malla.pdf' },
-    mh:          { curriculo: 'pdfs/cs/mh-curriculo.pdf',          plan: 'pdfs/cs/mh-plan.pdf',          malla: 'pdfs/cs/mh-malla.pdf' },
-    // FACEAC
-    admi:     { curriculo: 'pdfs/faceac/admi-curriculo.pdf',     plan: 'pdfs/faceac/admi-plan.pdf',     malla: 'pdfs/faceac/admi-malla.pdf' },
-    conta:    { curriculo: 'pdfs/faceac/conta-curriculo.pdf',    plan: 'pdfs/faceac/conta-plan.pdf',    malla: 'pdfs/faceac/conta-malla.pdf' },
-    economia: { curriculo: 'pdfs/faceac/economia-curriculo.pdf', plan: 'pdfs/faceac/economia-plan.pdf', malla: 'pdfs/faceac/economia-malla.pdf' },
+    quimica:        { curriculo: 'https://drive.google.com/file/d/1YJ2rZ19tVHqt955H5JqQ7O-29cuPfVSE/view', plan: 'https://drive.google.com/file/d/1FyktUrkKgmIe6FQ7Izruq-6CRRvs7ntR/preview', malla: 'https://drive.google.com/file/d/1AF8li_KtC8DwuRuqASkbQzSDyQ0ygcjI/preview' },
+    alimentarias:   { curriculo: 'https://drive.google.com/file/d/1j92VeG7JSuSkmfXDWQlI1-brQPVnHeAb/view', plan: 'https://drive.google.com/file/d/1imaZw2uS_VYZ_3PT5blATsOiASXbXuNl/preview', malla: 'https://drive.google.com/file/d/1WoPqYJ8imH_ArKP1AUe3dcja5_VIj664/preview' },
+    agroindustrial: { curriculo: 'https://drive.google.com/file/d/1sIFt27bia91V319ncgsCTurCf1iiBJxg/view', plan: 'https://drive.google.com/file/d/194k5l2ETVyci4v3Uv-ZyoPLE-_-sG3lJ/preview', malla: 'https://drive.google.com/file/d/1GubT1rSUaJXVtzMvYniXUxyr0fLyW_6u/preview' },
+    ts:           { curriculo: 'https://drive.google.com/file/d/199YnxGpH5oxvn_bE9JEPrYZ6suKkuuku/view', plan: 'https://drive.google.com/file/d/1MLvCLSgz6suuL8sNJdGSquDagLSEbDJ9/view', malla: 'https://drive.google.com/file/d/10mrYxOVto3_krVdjbm-U14KaRK3JsVbp/preview' },
+    antropologia: { curriculo: 'https://drive.google.com/file/d/1X2EHlXs2GGnUbfCUEsBKJP_dppY2RZN/view', plan: 'https://drive.google.com/file/d/1NV0ZXw6hGLZJYnnpBhwoc_63GOUoAoDw/preview', malla: 'https://drive.google.com/file/d/1FSdE323eZCqMHjfDS5q3qiT4QhlmYzHX/preview' },
+    comunicacion: { curriculo: 'https://drive.google.com/file/d/1hB8WHWFMV5gjkAylY4Dmv6Rm32T_LHOT/view', plan: 'https://drive.google.com/file/d/1xfoNlvdf0XOp7Lr2aegxMoMy6I-ELsJH/preview', malla: 'https://drive.google.com/file/d/1thOXW9ZaLmhHug7Cw_MpXY2DYWHuxD5C/preview' },
+    arqueologia:  { curriculo: 'https://drive.google.com/file/d/1Xde-UBLAsTDu0gkKrKtQ0wub2TYAw1Tr/view', plan: 'https://drive.google.com/file/d/1i83VRsFM4ES0G5MUzIrGZdN0_txo3aVu/preview', malla: 'https://drive.google.com/file/d/1Ufd8oSZ2I80d1Tayaf2yYw8nLXsIHC5d/preview' },
+    historia:     { curriculo: 'https://drive.google.com/file/d/1h66zFB7glWHuXLvWVUv1YQhfEvIF9ost/view', plan: 'https://drive.google.com/file/d/1UtTnBw_Ke05zu1TTuvifIQKSDgf6miXA/preview', malla: 'https://drive.google.com/file/d/15TyQL9LtVpCasAK0nG0Qn3e13U0AvPNj/preview' },
+    minas:    { curriculo: 'https://drive.google.com/file/d/1Of0uOt_7gpkSrzjPdJhsQv6eyeXsTbTC/view', plan: 'https://drive.google.com/file/d/1IdUvvoExXv9OIISR2R30QsikCG_RsIhv/preview', malla: 'https://drive.google.com/file/d/1xxubn3vYcbYfaApO1vF9sUnOtJGgdCgL/preview' },
+    civil:    { curriculo: 'https://drive.google.com/file/d/1QsXN3IDSCtIsKVSTJQKmUkTdSbOH24rj/view', plan: 'https://drive.google.com/file/d/1T2nqd2FkZiI7e8aPlJALKg1H1UKtxUKj/preview', malla: 'https://drive.google.com/file/d/1a15-EbA2KilhtwXy6KO5XcUZoIb5Pgvc/preview' },
+    sistemas: { curriculo: 'https://drive.google.com/file/d/14DIsw6rKKDfENF3UFJIPT__mSKjtUnu_/view', plan: 'https://drive.google.com/file/d/1NVN9icw1IXRg7OyggClqUFYsm861Wjak/preview', malla: 'https://drive.google.com/file/d/1Wk5vQKFIqUW8IIRZC3WckDMRNMm44oeq/preview' },
+    fisica:   { curriculo: 'https://drive.google.com/file/d/11nX_LSufLQop2mS0GCTBOFPjHuqp1wOe/view', plan: 'https://drive.google.com/file/d/1076Djl3Ov_LuNmw7LCqd6LzkHGczGItX/preview', malla: 'https://drive.google.com/file/d/1QHMsdC7EYCJNV_jFR4RCeqWFAQnv-WCv/preview' },
+    mate:     { curriculo: 'https://drive.google.com/file/d/1TkcPzl1fFs7GquprahE7N07r1-2vPZQz/preview', plan: 'https://drive.google.com/file/d/184YjKwcEMvd9w1axoWhox4VieuzaMzi-/preview', malla: 'https://drive.google.com/file/d/1UNmfqD9evfCydar-OjGYUO66qqvKAiEC/preview' },
+    estad:    { curriculo: 'https://drive.google.com/file/d/1ol2HB_o1zV_WvdqkWBFWkM7E5EB2TL9_/preview', plan: 'https://drive.google.com/file/d/1HkCv9ZnVZ_ErkSSRAC9PgmM7kvVS8v__/preview', malla: 'https://drive.google.com/file/d/19onQ5Zbv6MDXzky34ahP2Q2e9zeMCKer/preview' },
+    micro:    { curriculo: 'https://drive.google.com/file/d/17p54DnI9p55qWwJTrrHLYTiNP6uyIuey/preview', plan: 'https://drive.google.com/file/d/11rW-xZ68jXrwa-OncbIMcODKq0HioOBU/preview', malla: 'https://drive.google.com/file/d/11rW-xZ68jXrwa-OncbIMcODKq0HioOBU/preview' },
+    bio:      { curriculo: 'https://drive.google.com/file/d/1rgxeR-LDPPzK5Z3vlHUf4RSiPpmkw-oP/preview', plan: 'https://drive.google.com/file/d/1c-fMTnVoJCec7ayxpXmSh6b4PZaTZYM1/preview', malla: 'https://drive.google.com/file/d/1EjLDosZu5hym-AfPyHd0ZeYhkFsGJSlz/preview' },
+    ecologia: { curriculo: 'https://drive.google.com/file/d/1s4O1hgSBBk7xFKRwC5W1AjE4NlIsnLKU/preview', plan: 'https://drive.google.com/file/d/1s4O1hgSBBk7xFKRwC5W1AjE4NlIsnLKU/preview', malla: 'https://drive.google.com/file/d/1Koz9i49tPLGoKqUcRqltOl6CHqG3FCaR/preview' },
+    inicial:   { curriculo: 'https://drive.google.com/file/d/1ZpOgnBpNwB3A4bwSMRbcOJOQIfqI2Q-M/preview', plan: 'https://drive.google.com/file/d/1RoPhTQm9S8BxzuIhqBhvMGlHjtq80R7m/preview', malla: 'https://drive.google.com/file/d/1aZPCy2gdTVauHhZMipMMhpDZ_a1ytj3B/preview' },
+    primaria:  { curriculo: 'https://drive.google.com/file/d/1-aT_zSqdhDj1NaCbX1UQr3EDb2tjrGIG/preview', plan: 'https://drive.google.com/file/d/1Kcjo43ax19TUHd4Bmagm8A8Z7gUmqh81/preview', malla: 'https://drive.google.com/file/d/1zX0boA2ZHfgTBGBfn8dOM0C3Y_Fr5hZi/preview' },
+    lengua:    { curriculo: 'https://drive.google.com/file/d/14V8ykuYUyzRoOyCJ2TA13-XyCHagbi2W/preview', plan: 'https://drive.google.com/file/d/154zc-1ymkX1YOKbkhF_iors9FiooF_7H/preview', malla: 'https://drive.google.com/file/d/1gu1kNPKAfejBRGaIc9o96pml6K894GtC/preview' },
+    matfis:    { curriculo: 'https://drive.google.com/file/d/1bRZSyP4q9wTUjZHD78PPqaJZCGqSfads/preview', plan: 'https://drive.google.com/file/d/1AY6_avIK7uOPDKDUC0IkxzHbMAeFqwxN/preview', malla: 'https://drive.google.com/file/d/15-HrPq4YFhk1awnVBfVp5CF1fKc4F4wO/preview' },
+    ingles:    { curriculo: 'https://drive.google.com/file/d/11Zb4m_qbbOLZW6ECBy6PF8O5Kj-b9rbE/preview', plan: 'https://drive.google.com/file/d/1xfgmu27nvudKk4lK5SZkv8aztzb3sf02/preview', malla: 'https://drive.google.com/file/d/1ziqnTVKR-8ufwZzEzLWg_9AOyYN4bH15/preview' },
+    socfil:    { curriculo: 'https://drive.google.com/file/d/1K9mOjwisUrv9V7wcXqfqC3B4pfTo-m6X/preview', plan: 'https://drive.google.com/file/d/1RDO7ZLHuVJjoSgJ2G_6mss2bHNuWgSNV/preview', malla: 'https://drive.google.com/file/d/1EGAd0OWwQ75G-pALKybcW1hBXCTHy_-X/preview' },
+    edufisica: { curriculo: 'https://drive.google.com/file/d/1LTQ3OtzmSZlnA8FQzZHR9Rp34lUT-mdx/preview', plan: 'https://drive.google.com/file/d/1e_OOklg1wGWzfcbTWSU70cX82LAss6g5/preview', malla: 'https://drive.google.com/file/d/1yP1k74Oj5h_jgGBVdybbnHz5VAn8CdJ0/preview' },
+    agronomia:    { curriculo: 'https://drive.google.com/file/d/1BTW3epDqrnQklxZgIZ-JxHQ-EuYGWI9d/preview', plan: 'https://drive.google.com/file/d/1R75xNzLFIwIyEGaLwd3dAZHNJUsaknz2/preview', malla: 'https://drive.google.com/file/d/1nQ1t6HGWe8XZeo4nUcSdRc7F3sRiGWoU/preview' },
+    agricola:     { curriculo: 'https://drive.google.com/file/d/1gCTWW7npBxFAEURnbYiDE1ssqSB1d9kf/preview', plan: 'https://drive.google.com/file/d/10TQl0CtY0vcui1dE5G5l_yVVofbc2jR9/preview', malla: 'https://drive.google.com/file/d/1yASNlkod87LvGi66Hg3BxNcWVNEzeFQC/preview' },
+    mv:           { curriculo: 'https://drive.google.com/file/d/1QOXCYX4mZxJV91XJ-3kt5vKBElLOqbWF/preview', plan: 'https://drive.google.com/file/d/1vKR-EbbmvNfOEmoCBJCzi-SUrvYZ5ko6/preview', malla: 'https://drive.google.com/file/d/1nwzT2VbkTBlDCRBscvRk_aZbaEglbITA/preview' },
+    agroforestal: { curriculo: 'https://drive.google.com/file/d/1iHDDRpXfQx1eN9cqjI4_J_lRG9JZowD-/preview', plan: 'https://drive.google.com/file/d/1MP68PRzK0l9OSgoeaF6HhyQQ6NWXIjiN/preview', malla: 'https://drive.google.com/file/d/19JNoN1k_07cQ8-5LwmxUm1aNuOKrusmL/preview' },
+    derecho: { curriculo: 'https://drive.google.com/file/d/16OUN_YlHzwdDgp6S1vCn74O5qBqAgNCH/preview', plan: 'https://drive.google.com/file/d/146CjaAHhHAtBwLJOAjhuO-LVvTrdc_-T/preview', malla: 'https://drive.google.com/file/d/1gyhY7-0bnSsLDxBEgS5dGgErp5ogpj3O/preview' },
+    obstetricia: { curriculo: 'https://drive.google.com/file/d/1RLYFuRPw3JIFvuNves4ki9guSBCBwl_7/preview', plan: 'https://drive.google.com/file/d/1sqvHOEzXnzc5kf4lQW0EiWB2c7Prp7Pl/preview', malla: 'https://drive.google.com/file/d/1F-wNLVVXZNYlI80tTNlCjPMNK0V3dg0_/preview' },
+    enfermeria:  { curriculo: 'https://drive.google.com/file/d/1zH-ndvRy12A--J3YsQ8XZG7k-XcFoE30/preview', plan: 'https://drive.google.com/file/d/1hm_M1GC6mbcyXQQIth5j-IeJ0Odnsq_v/preview', malla: 'https://drive.google.com/file/d/1_loAldLDh4D5LQxlLOUO72BMqJr1vwkz/preview' },
+    farmacia:    { curriculo: 'https://drive.google.com/file/d/1mskjQwCj0sg8JXmH8qPjRhAdmge0dnbj/preview', plan: 'https://drive.google.com/file/d/1W4ujXcfhOnZgktPrnZd1m5wA3ZecCHcO/preview', malla: 'https://drive.google.com/file/d/1HSw99xMRgdO-Qit4l-jcPz--em2Mj5KQ/preview' },
+    mh:          { curriculo: 'https://drive.google.com/file/d/1kurbJd0lUZWfsaS-zTIYDjiEuDL77xSN/preview', plan: 'https://drive.google.com/file/d/1gtShwPZ4UZ5H2hIXYl8usWi9LReAWQM_/preview', malla: 'https://drive.google.com/file/d/1xV-SHi0OvBcKFNMc-fJ4F3kqQ6Ncqc4J/preview' },
+    admi:     { curriculo: 'https://drive.google.com/file/d/1bFWsMGsgb6-xhcFMP7GNZbzu00GDa30J/preview', plan: 'https://drive.google.com/file/d/1Bv9HyuoarH5V5YZISvEb_vk_6dUfBgRs/preview', malla: 'https://drive.google.com/file/d/1kui42E7QgsytFytLeq6N0TzUmZxHadY9/preview' },
+    conta:    { curriculo: 'https://drive.google.com/file/d/1JC5eBP94lok7e1Wu1oVGY0nijDpj8JPx/preview', plan: 'https://drive.google.com/file/d/13QWn8J-L9Qgg2TzZUqKUncGqWh4RvylM/preview', malla: 'https://drive.google.com/file/d/1NQQBRWOmGskM2JTT9Vjnk7P95pp303Vr/preview' },
+    economia: { curriculo: 'https://drive.google.com/file/d/11BdLN7Anlhncxv2sj-u_fsaVDkqle-dS/preview', plan: 'https://drive.google.com/file/d/1YYW9hbKbE9whl_km4dGVZYk1It7LlDpo/preview', malla: 'https://drive.google.com/file/d/1BAu9LmSRgCMlsyE_mXRARmHbzdw6JrAX/preview' },
   };
 
-  // Nombres legibles de escuelas
   const nombres = {
     quimica: 'Ingeniería Química', alimentarias: 'Industrias Alimentarias', agroindustrial: 'Ingeniería Agroindustrial',
     ts: 'Trabajo Social', antropologia: 'Antropología Social', comunicacion: 'Ciencias de la Comunicación',
@@ -202,30 +183,32 @@
     admi: 'Administración de Empresas', conta: 'Contabilidad y Auditoría', economia: 'Economía',
   };
 
-  // ── LEER URL ──
-  const params   = new URLSearchParams(window.location.search);
-  const facId    = params.get('facultad');
-  const escId    = params.get('escuela');
-  const escPdfs  = pdfs[escId];
+  const params  = new URLSearchParams(window.location.search);
+  const facId   = params.get('facultad');
+  const escId   = params.get('escuela');
+  const escPdfs = pdfs[escId];
   const escNombre = nombres[escId] || 'Escuela';
 
+  function abrirLink(url) {
+    window.open(url, '_blank');
+  }
+
+  function descargarLink(url) {
+    window.open(url.replace('preview', 'export=download'), '_blank');
+  }
+
   if (escPdfs) {
-    // Hero
-    document.getElementById('hero-titulo').textContent  = escNombre;
+    document.getElementById('hero-titulo').textContent   = escNombre;
     document.getElementById('hero-facultad').textContent = 'Documentos de la escuela';
     document.title = escNombre + ' — Documentos';
+    document.getElementById('btn-volver-esc').href = 'escuelas.html?facultad=' + facId;
 
-    // Botón volver
-    document.getElementById('btn-volver-esc').href = `escuelas.html?facultad=${facId}`;
-
-    // Asignar rutas a botones
-    document.getElementById('btn-des-curriculo').href = escPdfs.curriculo;
-    document.getElementById('btn-abr-curriculo').href = escPdfs.curriculo;
-    document.getElementById('btn-des-plan').href      = escPdfs.plan;
-    document.getElementById('btn-abr-plan').href      = escPdfs.plan;
-    document.getElementById('btn-des-malla').href     = escPdfs.malla;
-    document.getElementById('btn-abr-malla').href     = escPdfs.malla;
-
+    document.getElementById('btn-abr-curriculo').onclick  = function(){ abrirLink(escPdfs.curriculo); };
+    document.getElementById('btn-des-curriculo').onclick  = function(){ descargarLink(escPdfs.curriculo); };
+    document.getElementById('btn-abr-plan').onclick       = function(){ abrirLink(escPdfs.plan); };
+    document.getElementById('btn-des-plan').onclick       = function(){ descargarLink(escPdfs.plan); };
+    document.getElementById('btn-abr-malla').onclick      = function(){ abrirLink(escPdfs.malla); };
+    document.getElementById('btn-des-malla').onclick      = function(){ descargarLink(escPdfs.malla); };
   } else {
     window.location.href = 'facultades.html';
   }
